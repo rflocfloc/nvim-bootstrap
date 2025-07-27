@@ -15,36 +15,17 @@ return {
 	save_on_toggle = true,
       },
     },
-    keys = function()
-      local keys = {
-	{
-	  "<leader>hf",
-	  function()
-	    require("harpoon"):list():add()
-	  end,
-	  desc = "[H]arpoon [F]ile",
-	},
-	{
-	  "<leader>ht",
-	  function()
-	    local harpoon = require("harpoon")
-	    harpoon.ui:toggle_quick_menu(harpoon:list())
-	  end,
-	  desc = "[H]arpoon [T]oggle menu",
-	},
-      }
-
-      for i = 1, 5 do
-	table.insert(keys, {
-	  "<C>" .. i,
-	  function()
-	    require("harpoon"):list():select(i)
-	  end,
-	  desc = "Harpoon to File " .. i,
-	})
-      end
-      return keys
+    config = function()
+      require("harpoon"):setup()
     end,
+    keys = {
+      { "<leader>hf", function() require("harpoon"):list():append() end, desc = "[H]arpoon [F]ile", },
+      { "<leader>ht", function() local harpoon = require("harpoon") harpoon.ui:toggle_quick_menu(harpoon:list()) end, desc = "[H]arpoon [T]oggle menu", },
+      { "<C-J>", function() require("harpoon"):list():select(1) end, desc = "Harpoon to file 1", },
+      { "<C-K>", function() require("harpoon"):list():select(2) end, desc = "Harpoon to file 2", },
+      { "<C-L>", function() require("harpoon"):list():select(3) end, desc = "Harpoon to file 3", },
+      { "<C-:>", function() require("harpoon"):list():select(4) end, desc = "Harpoon to file 4", },
+    },
   },
 
   { -- Useful plugin to show you pending keybinds.
