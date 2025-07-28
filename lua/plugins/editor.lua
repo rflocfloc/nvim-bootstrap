@@ -68,7 +68,7 @@ return {
       todo_comments.setup()
     end,
     keys = {
-      { "<leader>tt", function() Snacks.picker.todo_comments() end, desc = "[T]odo [T]oggle search" },
+      { "<leader>tt", '<cmd>TodoQuickFix<cr>', desc = "[T]odo [T]oggle search" },
       { "<leader>tn", function() require("todo-comments").jump_next() end, desc = "[T]odo [N]ext comment" },
       { "<leader>tp", function() require("todo-comments").jump_prev() end, desc = "[T]odo [P]revious comment" },
     },
