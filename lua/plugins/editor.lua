@@ -1,9 +1,81 @@
 return {
-  { -- Detect tabstop and shiftwidth automatically
-    'NMAC427/guess-indent.nvim' 
+  -- Extend and create a/i textobjects.
+  { 'echasnovski/mini.ai', version = '*' },
+
+  -- Comment lines, see comands gc, gcc.
+  { 'echasnovski/mini.comment', version = '*' },
+
+  -- Surrounding actions, see commands sa, sd, sh, sr, etc.
+  { 'echasnovski/mini.surround', version = '*' },
+
+  -- Minimal and fast autopairs
+  { 'echasnovski/mini.pairs', version = '*' },
+
+  -- Move any selection in any direction, with = adjust indent.
+  { 'echasnovski/mini.move', 
+    version = '*',
+    opts = {
+      mappings = {
+        -- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl.
+        left = "<A-h>",
+        right = "<A-l>",
+        down = "<A-j>",
+        up = "<A-k>",
+        -- Move current line in Normal mode
+        line_left = "<A-h>",
+        line_right = "<A-l>",
+        line_down = "<A-j>",
+        line_up = "<A-k>",
+      },
+    },
   },
 
-  { -- Pin point buffers and jump between them with shortcut
+  -- Split and join arguments using gS
+  {'echasnovski/mini.splitjoin', version = '*' },
+
+  -- Visualize and work with indent scope
+  { 'echasnovski/mini.indentscope', 
+    version = '*',
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+    opts = {
+      options = { try_as_border = true },
+      symbol = "│",
+    },
+  },
+
+  -- Detect tabstop and shiftwidth automatically
+  { 'NMAC427/guess-indent.nvim' },
+
+  -- Flash enhances the built-in search functionality by showing labels at the end of each match, letting you quickly jump to a specific location.
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    vscode = true,
+    ---@type Flash.Config
+    opts = { },
+    keys = {
+      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+      { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+    },
+  },
+
+   -- Finds and lists all of the TODO, HACK, WARN, PERF, NOTE, TEST, FIX, FIXME, etc comment
+  {
+    "folke/todo-comments.nvim",
+    event = "VimEnter",
+    config= function()
+      local todo_comments = require("todo-comments")
+      todo_comments.setup()
+    end,
+    keys = {
+      { "<leader>tt", function() Snacks.picker.todo_comments() end, desc = "[T]odo [T]oggle search" },
+      { "<leader>tn", function() require("todo-comments").jump_next() end, desc = "[T]odo [N]ext comment" },
+      { "<leader>tp", function() require("todo-comments").jump_prev() end, desc = "[T]odo [P]revious comment" },
+    },
+  },
+
+  -- Pin point buffers and jump between them with shortcut
+  {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
     dependencies = {"nvim-lua/plenary.nvim"},
@@ -19,142 +91,12 @@ return {
       require("harpoon"):setup()
     end,
     keys = {
-      { "<leader>hf", function() require("harpoon"):list():append() end, desc = "[H]arpoon [F]ile", },
-      { "<leader>ht", function() local harpoon = require("harpoon") harpoon.ui:toggle_quick_menu(harpoon:list()) end, desc = "[H]arpoon [T]oggle menu", },
-      { "<C-J>", function() require("harpoon"):list():select(1) end, desc = "Harpoon to file 1", },
-      { "<C-K>", function() require("harpoon"):list():select(2) end, desc = "Harpoon to file 2", },
-      { "<C-L>", function() require("harpoon"):list():select(3) end, desc = "Harpoon to file 3", },
-      { "<C-:>", function() require("harpoon"):list():select(4) end, desc = "Harpoon to file 4", },
+      { "<leader>aa", function() require("harpoon"):list():add() end, desc = "H[a]rpoon [A]ppend", },
+      { "<leader>at", function() local harpoon = require("harpoon") harpoon.ui:toggle_quick_menu(harpoon:list()) end, desc = "H[a]rpoon [T]oggle menu", },
+      { "<leader>aj", function() require("harpoon"):list():select(1) end, desc = "H[a]rpoon to file [j] 1", },
+      { "<leader>ak", function() require("harpoon"):list():select(2) end, desc = "H[a]rpoon to file [k] 2", },
+      { "<leader>al", function() require("harpoon"):list():select(3) end, desc = "H[a]rpoon to file [l] 3", },
+      { "<leader>a;", function() require("harpoon"):list():select(4) end, desc = "H[a]rpoon to file [;] 4", },
     },
   },
-
-  { -- Useful plugin to show you pending keybinds.
-    'folke/which-key.nvim',
-    event = 'VimEnter',
-    opts = {
-      -- delay between pressing a key and opening which-key (milliseconds)
-      -- this setting is independent of vim.o.timeoutlen
-      delay = 0,
-      icons = {
-        -- set icon mappings to true if you have a Nerd Font
-        mappings = vim.g.have_nerd_font,
-        -- If you are using a Nerd Font: set icons.keys to an empty table which will use the
-        -- default which-key.nvim defined Nerd Font icons, otherwise define a string table
-        keys = vim.g.have_nerd_font and {} or {
-          Up = '<Up> ',
-          Down = '<Down> ',
-          Left = '<Left> ',
-          Right = '<Right> ',
-          C = '<C-…> ',
-          M = '<M-…> ',
-          D = '<D-…> ',
-          S = '<S-…> ',
-          CR = '<CR> ',
-          Esc = '<Esc> ',
-          ScrollWheelDown = '<ScrollWheelDown> ',
-          ScrollWheelUp = '<ScrollWheelUp> ',
-          NL = '<NL> ',
-          BS = '<BS> ',
-          Space = '<Space> ',
-          Tab = '<Tab> ',
-          F1 = '<F1>',
-          F2 = '<F2>',
-          F3 = '<F3>',
-          F4 = '<F4>',
-          F5 = '<F5>',
-          F6 = '<F6>',
-          F7 = '<F7>',
-          F8 = '<F8>',
-          F9 = '<F9>',
-          F10 = '<F10>',
-          F11 = '<F11>',
-          F12 = '<F12>',
-        },
-      },
-
-      -- Document existing key chains
-      -- Modify this is you want to add entry on leader menu
-      spec = {
-        { '<leader>s', group = '[S]earch'},
-        { '<leader>t', group = '[T]oggle' },
-        { '<leader>g', group = 'LSP: [G]oto' },
-        { '<leader>H', group = 'Git [H]unk', mode = { 'n', 'v' } },
-        { '<leader>w', group = '[W]indow' },
-        { '<leader>h', group = '[H]arpoon' },
-      },
-    },
-  },
-
-  {
-    "folke/snacks.nvim",
-    priority = 1000,
-    lazy = false,
-    ---@type snacks.Config
-    opts = {
-      indent = {
-        -- Adds indent lines
-        enabled = true
-      },
-      rename = {
-        -- LSP-integrated file renaming with support for plugins like nvim-tree.nvim
-        enabled = true
-      },
-      explorer = {
-        -- A file explorer for snacks
-        enabled = true
-      },
-      scope = {
-        -- Scope detection based on treesitter or indent.
-        enabled = true
-      },
-      scroll = {
-        enabled = false
-      },
-      statuscolumn = {
-        enabled = false
-      },
-      words = {
-	-- Auto-show LSP references and quickly navigate between them
-        enabled = true
-      },
-    },
-
-    keys = {
-      -- search
-      { "<leader>sf", function() Snacks.picker.files() end, desc = "[S]earch [F]iles" },
-      {"<leader>sn", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "[S]earch [N]eovim files" },
-      { "<leader>sp", function() Snacks.picker.projects() end, desc = "[S]earch [P]rojects" },
-      { "<leader>sk", function() Snacks.picker.keymaps({ layout = ""}) end, desc = "[S]earch [K]eymaps" },
-      { "<leader>sh", function() Snacks.picker.help() end, desc = "[S]earch [H]elp" },
-       -- grep
-      { "<leader>s/", function() Snacks.picker.grep_buffers() end, desc = "[S]earch [/] in Open Files" },
-      { "<leader>sg", function() Snacks.picker.grep() end, desc = "[S]earch by [G]rep" },
-      { "<leader>sw", function() Snacks.picker.grep_word() end, desc = "[S]earch current [W]ord", mode = { "n", "x" }},
-      -- top pickers
-      { "<leader>e", function() Snacks.explorer({ layout = "vertical"}) end, desc = "File [E]xplorer" },
-      { "<leader><leader>", function() Snacks.picker.buffers({
-            -- Start buffers picker in normal mode
-            on_show = function()
-              vim.cmd.stopinsert()
-            end,
-            finder = "buffers",
-            format = "buffer",
-            hidden = false,
-            unloaded = true,
-            current = true,
-            sort_lastused = true,
-            win = {
-              input = {
-                keys = {
-                  ["d"] = "bufdelete",
-                },
-              },
-              list = { keys = { ["d"] = "bufdelete" } },
-            },
-            layout = "select",
-      })
-      end, desc = "[ ] Find existing buffers"},
-    }
-  }
-
 }

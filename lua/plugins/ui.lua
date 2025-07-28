@@ -1,11 +1,12 @@
 return {
-  { -- Icons mini.icons
-    'echasnovski/mini.icons', 
-    version = '*' 
-  },
+  -- Icons mini.icons, need for statusline and which-key.
+  { 'echasnovski/mini.icons', version = '*' },
 
-  { -- Status bar
-    'nvim-lualine/lualine.nvim',
+  -- Icons based on NerdFonts, need for statusline and which-key.
+  { 'nvim-tree/nvim-web-devicons', version = '*' },
+
+  -- Status line.
+  { 'nvim-lualine/lualine.nvim',
     opts = {
       icons_enabled = true,
       theme = 'auto',
@@ -13,43 +14,30 @@ return {
 	lualine_a = {'mode'},
 	lualine_b = {'branch', 'diff', 'diagnostics'},
 	lualine_c = {'filename'},
-	lualine_x = {'filetype', 'filesize'},
+	lualine_x = {'location', 'filesize'},
 	lualine_y = {'lsp_status'},
-	lualine_z = {'location'} -- line:column in file
+	lualine_z = {'filetype'} -- line:column in file
       },
     },
-    dependencies = { 'nvim-tree/nvim-web-devicons' }
   },
 
-  { -- Snacks ui components
-    "folke/snacks.nvim",
-    priority = 1000,
-    lazy = false,
-    ---@type snacks.Config
+  -- Shows available keybindings in a popup as you type.
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
     opts = {
-      dashboard = {
-        -- Startup dashboard
-        enabled = true,
-        sections = {
-          { section = "header" },
-          { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
-          { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
-          { section = "startup" },
-        },
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+    keys = {
+      {
+	"<leader>?",
+	function()
+	  require("which-key").show({ global = false })
+	end,
+	desc = "Buffer Local Keymaps (which-key)",
       },
-      picker = {
-        -- picker default behaviour
-        enabled = true,
-        layout = "telescope"
-      },
-      bigfile = {
-        -- Files too big are not rendered by picker preview and better displayed
-        enabled = true
-      },
-      quickfile = {
-        -- When doing nvim somefile.txt, it will render the file as quickly as possible, before loading your plugins
-        enabled = true
-      },
-    }
+    },
   }
 }
