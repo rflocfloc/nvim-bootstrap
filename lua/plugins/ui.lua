@@ -10,13 +10,27 @@ return {
     opts = {
       icons_enabled = true,
       theme = 'auto',
-      sections = { -- sections of the status bar from left to right ( A | B | C ------------ X | Y | Z )
-	lualine_a = {'mode'},
+      options = {
+	component_separators = "",
+	section_separators = { left = "", right = "" },
+      },
+      sections = {
+	lualine_a = { { "mode", separator = { left = '' }, right_padding = 2 } },
 	lualine_b = {'branch', 'diff', 'diagnostics'},
-	lualine_c = {'filename'},
-	lualine_x = {'location', 'filesize'},
-	lualine_y = {'lsp_status'},
-	lualine_z = {'filetype'} -- line:column in file
+	lualine_c = { "filename" },
+	lualine_x = { "lsp_status", "filesize", "filetype" },
+	lualine_y = {
+	  { "progress", separator = " ", padding = { left = 1, right = 0 } },
+	  { "location", padding = { left = 0, right = 1 } },
+	},
+	lualine_z = {
+	  {
+	    function()
+	      return " " .. os.date("%R")
+	    end,
+	    separator = { right = "" }
+	  }, 
+	},
       },
     },
   },
