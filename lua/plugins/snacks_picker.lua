@@ -5,14 +5,14 @@ return {
     lazy = false,
     ---@type snacks.Config
     opts = {
-      explorer = { enabled = true },
-      picker = { 
+      picker = {
 	enabled = true,
         layout = "telescope"
       },
       bigfile = { enabled = true },
       quickfile = { enabled = true },
       image = { enabled = true },
+      explorer = { enabled = false },
       indent = { enabled = false },
       animate = { enabled = false },
       rename = { enabled = false },
@@ -24,10 +24,10 @@ return {
       words = { enabled = false },
     },
 
-    keys = {
+   keys = {
       -- search
       { "<leader>sf", function() Snacks.picker.files() end, desc = "[S]earch [F]iles" },
-      {"<leader>sn", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "[S]earch [N]eovim files" },
+      { "<leader>sn", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "[S]earch [N]eovim files" },
       { "<leader>sp", function() Snacks.picker.projects() end, desc = "[S]earch [P]rojects" },
       { "<leader>sH", function() Snacks.picker.files({cwd = "/home" }) end, desc = "[S]earch files in [H]ome" },
       { "<leader>sR", function() Snacks.picker.files({cwd = "/" }) end, desc = "[S]earch files in [R]oot" },
@@ -60,7 +60,7 @@ return {
             layout = "select",
       })
       end, desc = "[ ] Existing Buffers"},
-    { "<leader>e", function() Snacks.explorer({ layout = "vertical"}) end, desc = "File [E]xplorer" },
+    -- { "<leader>e", function() Snacks.explorer({ layout = "vertical"}) end, desc = "File [E]xplorer" },
     },
   },
 }

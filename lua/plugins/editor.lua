@@ -31,7 +31,16 @@ return {
   },
 
   -- Split and join arguments using gS
-  {'echasnovski/mini.splitjoin', version = '*' },
+  { 'echasnovski/mini.splitjoin', 
+    version = '*', 
+    opts = {
+      mappings = {
+	toggle = 'gS',
+	split = '',
+	join = '',
+      }, 
+    } 
+  },
 
   -- Visualize and work with indent scope
   { 'echasnovski/mini.indentscope', 
@@ -54,8 +63,8 @@ return {
     ---@type Flash.Config
     opts = { },
     keys = {
-      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-      { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+      { "<leader>ff", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "[F]lash [f] jump" },
+      { "<leader>ft", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "[F]lash [T]reesitter" },
     },
   },
 
@@ -68,7 +77,7 @@ return {
       todo_comments.setup()
     end,
     keys = {
-      { "<leader>tt", '<cmd>TodoQuickFix<cr>', desc = "[T]odo [T]oggle search" },
+      { "<leader>tt", function() require("todo-comments.snacks").pick() end, desc = "[T]odo [T]oggle search" },
       { "<leader>tn", function() require("todo-comments").jump_next() end, desc = "[T]odo [N]ext comment" },
       { "<leader>tp", function() require("todo-comments").jump_prev() end, desc = "[T]odo [P]revious comment" },
     },

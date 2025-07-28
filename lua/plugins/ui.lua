@@ -2,9 +2,6 @@ return {
   -- Icons mini.icons, need for statusline and which-key.
   { 'echasnovski/mini.icons', version = '*' },
 
-  -- Icons based on NerdFonts, need for statusline and which-key.
-  { 'nvim-tree/nvim-web-devicons', version = '*' },
-
   -- Status line.
   { 'nvim-lualine/lualine.nvim',
     opts = {
@@ -12,13 +9,14 @@ return {
       theme = 'auto',
       options = {
 	component_separators = "",
-	section_separators = { left = "", right = "" },
+	section_separators = { left = " ", right = " " },
       },
+
       sections = {
-	lualine_a = { { "mode", separator = { left = '' }, right_padding = 2 } },
+	lualine_a = { { "mode",  right_padding = 2 } },
 	lualine_b = {'branch', 'diff', 'diagnostics'},
 	lualine_c = { "filename" },
-	lualine_x = { "lsp_status", "filesize", "filetype" },
+	lualine_x = {"lsp_status", "filesize", "filetype"},
 	lualine_y = {
 	  { "progress", separator = " ", padding = { left = 1, right = 0 } },
 	  { "location", padding = { left = 0, right = 1 } },
@@ -28,7 +26,6 @@ return {
 	    function()
 	      return " " .. os.date("%R")
 	    end,
-	    separator = { right = "" }
 	  }, 
 	},
       },
@@ -81,9 +78,10 @@ return {
       -- Document existing key chains
       spec = {
         { '<leader>s', group = '[S]earch', icon = '󰱼'},
+        { '<leader>f', group = '[F]lash', icon = ''},
         { '<leader>g', group = 'LSP: [G]oto' },
         { '<leader>a', group = 'H[a]rpoon', icon = '󱡀' },
-        { '<leader>w', group = '[W]indow' , icon = ''},
+        { '<C-w>', group = '[W]indow' , icon = ''},
         { '<leader>t', group = '[T]odo', icon = '' },
         { '<leader>H', group = 'Git [H]unk', mode = { 'n', 'v' } },
       },
