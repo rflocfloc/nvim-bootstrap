@@ -8,10 +8,9 @@ return {
       todo_comments.setup()
     end,
     keys = {
-      -- FIX: Non funziona 'globalmente' forse con quickfix va
-      { "<leader>tt", function() require("todo-comments.snacks").pick() end, desc = "[T]odo [T]oggle search" },
-      { "<leader>tn", function() require("todo-comments").jump_next() end, desc = "[T]odo [N]ext comment" },
-      { "<leader>tp", function() require("todo-comments").jump_prev() end, desc = "[T]odo [P]revious comment" },
+      { "<leader>t", '<cmd>TodoQuickFix<CR>', desc = "[T]odo quickfix" },
+      -- { "<leader>tn", function() require("todo-comments").jump_next() end, desc = "[T]odo [N]ext comment" },
+      -- { "<leader>tp", function() require("todo-comments").jump_prev() end, desc = "[T]odo [P]revious comment" },
     },
   },
 }

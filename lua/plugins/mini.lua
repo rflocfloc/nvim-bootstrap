@@ -1,61 +1,44 @@
 return {
-  -- Icons mini.icons, need for statusline and which-key.
-  { 'echasnovski/mini.icons', version = '*' },
+  'echasnovski/mini.nvim', 
+  version = '*', 
+  config = function()
+    -- Icons mini.icons, need for statusline and which-key.
+    require('mini.icons').setup {}
 
-  -- Extend and create a/i textobjects.
-  { 'echasnovski/mini.ai', version = '*' },
-  -- TODO: check se puoi specificare in chiaro shorcuts
+    -- Show notifications require('mini.notify').setup {}
 
-  -- Comment lines
-  { 'echasnovski/mini.comment', version = '*' },
-  -- TODO: check se puoi specificare in chiaro shorcuts
+    -- Extend and create a/i textobjects.
+    require('mini.ai').setup { n_lines = 500 }
 
-  -- Surrounding actions
-  { 'echasnovski/mini.surround', version = '*' },
-  -- TODO: check se puoi specificare in chiaro shorcuts
+    -- Minimal and fast autopairs
+    require('mini.pairs').setup {}
 
-  -- Minimal and fast autopairs
-  { 'echasnovski/mini.pairs', version = '*' },
-  -- TODO: check se se funziona
-
-  -- Move any selection in any direction, with = adjust indent.
-  { 'echasnovski/mini.move', 
-    version = '*',
-    opts = {
+    -- Move any selection in any direction, with = adjust indent.
+    require('mini.move').setup {
       mappings = {
-        -- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl.
-        left = "<A-h>",
-        right = "<A-l>",
-        down = "<A-j>",
-        up = "<A-k>",
-        -- Move current line in Normal mode
-        line_left = "<A-h>",
-        line_right = "<A-l>",
-        line_down = "<A-j>",
-        line_up = "<A-k>",
-      },
-    },
-  },
+	-- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl.
+	left = "<A-h>",
+	right = "<A-l>",
+	down = "<A-j>",
+	up = "<A-k>",
+	-- Move current line in Normal mode
+	line_left = "<A-h>",
+	line_right = "<A-l>",
+	line_down = "<A-j>",
+	line_up = "<A-k>"
+      }
+    }
 
-  -- Split and join arguments using gS
-  { 'echasnovski/mini.splitjoin', 
-    version = '*', 
-    opts = {
-      mappings = {
-	toggle = 'gS',
-	split = '',
-	join = '',
-      }, 
-    } 
-  },
+    -- Split and join arguments using gS
+    require('mini.splitjoin').setup {
+      mappings = {toggle = 'gS', split = '', join = '',}
+    }
 
-  -- Visualize and work with indent scope
-  { 'echasnovski/mini.indentscope', 
-    version = '*',
-    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
-    opts = {
+    -- Visualize and work with indent scope
+    require('mini.splitjoin').setup {
       options = { try_as_border = true },
       symbol = "│",
-    },
-  },
+    }
+
+  end
 }

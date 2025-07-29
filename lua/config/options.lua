@@ -15,6 +15,7 @@ vim.o.scrolloff = 10		-- Minimal number of screen lines to keep above and below 
 vim.opt.tabstop = 8 		-- Tab indent: Always 8 (see :h tabstop)
 vim.opt.softtabstop = 2 	-- Tab indent: size of tab
 vim.opt.shiftwidth = 2 		-- Tab indent: size of tab
+vim.opt.termguicolors = true	-- 24-bit colored for notify
 
 -- Configure how new splits should be opened
 vim.o.splitright = true	

@@ -1,7 +1,5 @@
 return {
-  -- Shows available keybindings in a popup as you type.
-  {
-    'folke/which-key.nvim',
+'folke/which-key.nvim',
     event = 'VimEnter',
     opts = {
       delay = 0, -- delay between pressing a key and opening which-key (milliseconds), independent of vim.o.timeoutlen
@@ -65,5 +63,4 @@ return {
         { '<leader>H', group = 'Git [H]unk', mode = { 'n', 'v' } },
       },
     },
-  },
 }
