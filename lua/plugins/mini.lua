@@ -1,6 +1,6 @@
 return {
-  'echasnovski/mini.nvim', 
-  version = '*', 
+  'echasnovski/mini.nvim',
+  version = '*',
   config = function()
     -- Icons mini.icons, need for statusline and which-key.
     require('mini.icons').setup {}
@@ -35,7 +35,7 @@ return {
     }
 
     -- Visualize and work with indent scope
-    require('mini.splitjoin').setup {
+    require('mini.indentscope').setup {
       options = { try_as_border = true },
       symbol = "│",
     }
