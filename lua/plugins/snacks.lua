@@ -5,32 +5,33 @@ return {
     lazy = false,
     ---@type snacks.Config
     opts = {
-      picker = {
-	enabled = true,
-        layout = "telescope"
-      },
+  -- Picker features
       bigfile = { enabled = true },
       quickfile = { enabled = true },
-      image = { enabled = true },
-      explorer = { enabled = false },
-      indent = { enabled = false },
-      animate = { enabled = false },
-      rename = { enabled = false },
-      input = { enabled = false },
-      notifier = { enabled = false },
-      scope = { enabled = false },
-      scroll = { enabled = false },
-      statuscolumn = { enabled = false },
-      words = { enabled = false },
+      image = { enabled = true, formats = {"png", "jpg", "jpeg", "gif", "bmp", "webp", "tiff", "webm", "pdf"}},
+  -- Picker fuzzy finder and options
+      picker = { enabled = true, layout = "telescope"},
+  -- Notifier, pretty vim.notify
+      notifier = { enabled = true, style = 'compact'},
+  -- Dashboard
+      dashboard = {
+	enabled = true,
+	sections = {
+	  { section = "header" },
+	  { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
+	  { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+	  { section = "startup" },
+	},
+      }
     },
 
+  -- Keymaps
    keys = {
       -- search
       { "<leader>sf", function() Snacks.picker.files() end, desc = "[S]earch [F]iles" },
       { "<leader>sn", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "[S]earch [N]eovim files" },
       { "<leader>sp", function() Snacks.picker.projects() end, desc = "[S]earch [P]rojects" },
       { "<leader>sH", function() Snacks.picker.files({cwd = "/home" }) end, desc = "[S]earch files in [H]ome" },
-      { "<leader>sR", function() Snacks.picker.files({cwd = "/" }) end, desc = "[S]earch files in [R]oot" },
       { "<leader>sk", function() Snacks.picker.keymaps({ layout = "select"}) end, desc = "[S]earch [K]eymaps" },
       { "<leader>sh", function() Snacks.picker.help() end, desc = "[S]earch [H]elp" },
        -- grep
@@ -60,7 +61,7 @@ return {
             layout = "select",
       })
       end, desc = "[ ] Existing Buffers"},
-    -- { "<leader>e", function() Snacks.explorer({ layout = "vertical"}) end, desc = "File [E]xplorer" },
     },
   },
+
 }

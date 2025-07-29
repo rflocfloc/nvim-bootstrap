@@ -21,11 +21,4 @@ return {
       }
     end,
   },
-
-  -- Autocomplete
-  -- TODO: make it work
-  { 'echasnovski/mini.completion', 
-    version = '*',
-    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
-  },
 }

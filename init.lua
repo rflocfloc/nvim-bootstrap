@@ -9,6 +9,9 @@ require "config.keymaps"
 require "config.autocmds"
 require "config.lazy"
 
+-- [[ Loading custom modules]]
+require "custom.terminal"
+
 -- [[ Colorscheme ]]
 -- for colorschemes check under lua/plugin/colorscheme.lua
 vim.o.background = 'dark'

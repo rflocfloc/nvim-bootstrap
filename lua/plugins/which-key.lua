@@ -1,37 +1,4 @@
 return {
-  -- Icons mini.icons, need for statusline and which-key.
-  { 'echasnovski/mini.icons', version = '*' },
-
-  -- Status line.
-  { 'nvim-lualine/lualine.nvim',
-    opts = {
-      icons_enabled = true,
-      theme = 'auto',
-      options = {
-	component_separators = "",
-	section_separators = { left = " ", right = " " },
-      },
-
-      sections = {
-	lualine_a = { { "mode",  right_padding = 2 } },
-	lualine_b = {'branch', 'diff', 'diagnostics'},
-	lualine_c = { "filename" },
-	lualine_x = {"lsp_status", "filesize", "filetype"},
-	lualine_y = {
-	  { "progress", separator = " ", padding = { left = 1, right = 0 } },
-	  { "location", padding = { left = 0, right = 1 } },
-	},
-	lualine_z = {
-	  {
-	    function()
-	      return " " .. os.date("%R")
-	    end,
-	  }, 
-	},
-      },
-    },
-  },
-
   -- Shows available keybindings in a popup as you type.
   {
     'folke/which-key.nvim',
@@ -39,7 +6,20 @@ return {
     opts = {
       delay = 0, -- delay between pressing a key and opening which-key (milliseconds), independent of vim.o.timeoutlen
       preset = 'helix', -- Three layouts available: classic, modern, helix
-      plugins = {marks = false, register = false},
+      plugins = {
+	marks = false, 
+	registers = false,
+	spelling = false,
+	presets = {
+                operators = false,
+                motions = false,
+                text_objects = false,
+                windows = true,
+                nav = true,
+                z = true,
+                g = true,
+            },
+      },
       icons = {
         mappings = vim.g.have_nerd_font,
         -- If you are using a Nerd Font: set icons.keys to an empty table which will use the
@@ -79,7 +59,6 @@ return {
       spec = {
         { '<leader>s', group = '[S]earch', icon = '󰱼'},
         { '<leader>f', group = '[F]lash', icon = ''},
-        { '<leader>g', group = 'LSP: [G]oto' },
         { '<leader>a', group = 'H[a]rpoon', icon = '󱡀' },
         { '<C-w>', group = '[W]indow' , icon = ''},
         { '<leader>t', group = '[T]odo', icon = '' },
@@ -87,5 +66,4 @@ return {
       },
     },
   },
- 
 }
