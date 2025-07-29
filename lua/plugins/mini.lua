@@ -4,15 +4,19 @@ return {
 
   -- Extend and create a/i textobjects.
   { 'echasnovski/mini.ai', version = '*' },
+  -- TODO: check se puoi specificare in chiaro shorcuts
 
-  -- Comment lines, see comands gc, gcc.
+  -- Comment lines
   { 'echasnovski/mini.comment', version = '*' },
+  -- TODO: check se puoi specificare in chiaro shorcuts
 
-  -- Surrounding actions, see commands sa, sd, sh, sr, etc.
+  -- Surrounding actions
   { 'echasnovski/mini.surround', version = '*' },
+  -- TODO: check se puoi specificare in chiaro shorcuts
 
   -- Minimal and fast autopairs
   { 'echasnovski/mini.pairs', version = '*' },
+  -- TODO: check se se funziona
 
   -- Move any selection in any direction, with = adjust indent.
   { 'echasnovski/mini.move', 
