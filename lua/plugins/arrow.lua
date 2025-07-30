@@ -1,0 +1,11 @@
+return {
+  -- Bookmarks file and jump between them
+  "otavioschwanck/arrow.nvim",
+  opts = {
+    show_icons = true,
+    leader_key = ';', -- Recommended to be a single key
+    buffer_leader_key = 'm', -- Per Buffer Mappings
+    hide_handbook = true,
+    hide_buffer_handbook = false,
+  }
+}

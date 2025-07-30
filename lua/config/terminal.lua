@@ -55,4 +55,4 @@ local toggle_terminal = function()
 end
 
 -- Setting keymap
-vim.keymap.set({'n', 't'}, '<leader>T' , toggle_terminal , {desc = "[T]erminal"})
+vim.keymap.set({'n', 't'}, '<leader>F' , toggle_terminal , {desc = "[F]loating terminal"})

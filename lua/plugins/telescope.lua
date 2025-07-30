@@ -12,7 +12,6 @@ return {
         end,
       },
       { 'nvim-telescope/telescope-ui-select.nvim' },
-      { 'echasnovski/mini.icons', enabled = vim.g.have_nerd_font },
     },
     config = function()
 
