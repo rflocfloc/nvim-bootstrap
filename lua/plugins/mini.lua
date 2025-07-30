@@ -16,8 +16,7 @@ return {
     -- Visualize and work with indent scope
     require('mini.indentscope').setup {
       options = { try_as_border = true },
-      symbol = "│",
-    }
+      symbol = "│", }
 
     -- Move any selection in any direction, with = adjust indent.
     -- NOTE: Almost impemented in keymaps

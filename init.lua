@@ -7,7 +7,7 @@ vim.g.have_nerd_font = true	-- Set to true if you have a Nerd Font installed and
 require "config.options"
 require "config.keymaps"
 require "config.autocmds"
-require "config.terminal"
+require "config.floating_terminal"
 require "config.lazy"
 
 -- [[ Colorscheme ]]

@@ -1,6 +1,7 @@
 return {
   -- Bookmarks file and jump between them
-  "otavioschwanck/arrow.nvim",
+  "otavioschwanck/arrow.nvim", 
+  dependencies = { { "echasnovski/mini.icons" } },
   opts = {
     show_icons = true,
     leader_key = ';', -- Recommended to be a single key
