@@ -11,9 +11,10 @@ require "config.terminal"
 require "config.lazy"
 
 -- [[ Colorscheme ]]
--- for colorschemes check under lua/plugin/colorscheme.lua
+-- add colorschemes under lua/plugin/colorscheme.lua
 vim.o.background = 'dark'
 vim.cmd.colorscheme 'rose-pine'
 
 -- [[ Notification thrugh notify plugin ]]
 vim.notify = require("notify")
+

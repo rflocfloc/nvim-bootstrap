@@ -10,3 +10,17 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- Move between buffers keymaps
 vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+
+--  Use Alt+<hjkl> to move lines (Normal mode)
+--  Up and Down is going to follow automatic indentation
+vim.keymap.set('n', '<A-h>', '<<', { noremap = true, silent = true, desc = 'Move line to the left' })
+vim.keymap.set('n', '<A-l>', '>>', { noremap = true, silent = true, desc = 'Move line to the right' })
+vim.keymap.set('n', '<A-j>', ':m +1<CR>==', { noremap = true, silent = true, desc = 'Move line down' })
+vim.keymap.set('n', '<A-k>', ':m -2<CR>==', { noremap = true, silent = true, desc = 'Move line up' })
+
+--  Use Alt+<hjkl> to move lines (Visual and Block mode)
+--  Up and Down is going to follow automatic indentation
+vim.keymap.set({'v', 'x'}, '<A-h>', '<gv', { noremap = true, silent = true, desc = 'Move block selection to the left' })
+vim.keymap.set({'v', 'x'}, '<A-l>', '>gv', { noremap = true, silent = true, desc = 'Move block selection to the right' })
+vim.keymap.set({'v', 'x'}, '<A-j>', ':m \'>+1<CR>gv=gv', { noremap = true, silent = true, desc = 'Move block selection down' })
+vim.keymap.set({'v', 'x'}, '<A-k>', ':m \'<-2<CR>gv=gv', { noremap = true, silent = true, desc = 'Move block selection up' })
