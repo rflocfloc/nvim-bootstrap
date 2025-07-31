@@ -25,3 +25,10 @@ vim.keymap.set({'v', 'x'}, '<A-l>', '>gv', { noremap = true, silent = true, desc
 vim.keymap.set({'v', 'x'}, '<A-j>', ':m \'>+1<CR>gv=gv', { noremap = true, silent = true, desc = 'Move block selection down' })
 vim.keymap.set({'v', 'x'}, '<A-k>', ':m \'<-2<CR>gv=gv', { noremap = true, silent = true, desc = 'Move block selection up' })
 
+-- Copy to system clipboard
+vim.keymap.set({'v', 'n'}, '<leader>y', '<cmd>"+y<CR>', { noremap = true, silent = true, desc = 'Yank selection to system clipboard' })
+vim.keymap.set({'v', 'n'}, '<leader>Y', '<cmd>"+Y<CR>', { noremap = true, silent = true, desc = 'Yank line to system clipboard' })
+
+-- Delete to blackhole registry (not saved)
+vim.keymap.set({'v', 'n'}, '<leader>d', "\"_d", { noremap = true, silent = true, desc = 'Delete to blackhole' })
+vim.keymap.set({'v', 'n'}, '<leader>p', [["_dP]], { noremap = true, silent = true, desc = 'Delete to blackhole and Paste' })

@@ -22,12 +22,12 @@ vim.opt.termguicolors = true	-- 24-bit colored for notify
 vim.o.splitright = true	
 vim.o.splitbelow = true
 
--- Sync clipboard between OS and Neovim.
---  Schedule the setting after `UiEnter` because it can increase startup-time.
---  Remove this option if you want your OS clipboard to remain independent.
-vim.schedule(function()
-  vim.o.clipboard = 'unnamedplus'
-end)
+-- -- Sync clipboard between OS and Neovim.
+-- --  Schedule the setting after `UiEnter` because it can increase startup-time.
+-- --  Remove this option if you want your OS clipboard to remain independent.
+-- vim.schedule(function()
+--   vim.o.clipboard = 'unnamedplus'
+-- end)
 
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  Notice listchars is set using `vim.opt` instead of `vim.o`.
