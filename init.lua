@@ -14,7 +14,3 @@ require "config.lazy"
 -- add colorschemes under lua/plugin/colorscheme.lua
 vim.o.background = 'dark'
 vim.cmd.colorscheme 'rose-pine'
-
--- [[ Notification thrugh notify plugin ]]
-vim.notify = require("notify")
-

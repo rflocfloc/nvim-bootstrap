@@ -55,12 +55,14 @@ return {
       },
       -- Document existing key chains
       spec = {
-        { '<leader>s', group = '[S]earch', icon = '󰱼'},
-        { '<leader>f', group = '[F]lash', icon = ''},
-        { '<leader>a', group = 'H[a]rpoon', icon = '󱡀' },
-        { '<C-w>', group = '[W]indow' , icon = ''},
-        { '<leader>t', group = '[T]odo', icon = '' },
-        { '<leader>H', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        { '<leader>s', group = 'Search', icon={icon = '󰱼', color = "orange"}},
+        { '<leader>f', group = 'Flash', icon={icon = '', color = "yellow"}},
+        { '<leader>a', group = 'Harpoon', icon={icon = '󱡀', color='green'} },
+        { '<C-w>', group = 'Window' , icon = ''},
+        { '<leader>T', group = 'Todo', icon = {icon = "", color = "cyan"}},
+        { '<leader>t', group = 'Floating Terminal', icon = {icon = "", color = "red"}},
+        { '<leader><leader>', group = 'Existing Buffers', icon = {icon = "", color = "orange"}},
+        { '<leader>H', group = 'Git Hunk', mode = { 'n', 'v' } },
       },
     },
 }

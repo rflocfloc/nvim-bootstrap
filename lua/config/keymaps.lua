@@ -24,3 +24,4 @@ vim.keymap.set({'v', 'x'}, '<A-h>', '<gv', { noremap = true, silent = true, desc
 vim.keymap.set({'v', 'x'}, '<A-l>', '>gv', { noremap = true, silent = true, desc = 'Move block selection to the right' })
 vim.keymap.set({'v', 'x'}, '<A-j>', ':m \'>+1<CR>gv=gv', { noremap = true, silent = true, desc = 'Move block selection down' })
 vim.keymap.set({'v', 'x'}, '<A-k>', ':m \'<-2<CR>gv=gv', { noremap = true, silent = true, desc = 'Move block selection up' })
+
