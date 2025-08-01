@@ -13,4 +13,4 @@ require "config.lazy"
 -- [[ Colorscheme ]]
 -- add colorschemes under lua/plugin/colorscheme.lua
 vim.o.background = 'dark'
-vim.cmd.colorscheme 'rose-pine'
+vim.cmd.colorscheme 'candle-grey-transparent'
