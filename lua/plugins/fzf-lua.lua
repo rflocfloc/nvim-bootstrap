@@ -7,9 +7,18 @@ vim.pack.add({
 
 -- [[ Plugin Setup ]]
 require("fzf-lua").setup({
-  "telescope",
   defaults = {file_icons = "mini"},
-  files = {cwd_prompt = false}
+  files = {cwd_prompt = false},
+  previewers = {
+    builtin = {
+      syntax_limit_b = 1024 * 100, -- 100KB
+    },
+  },
+  grep = {
+    rg_glob = true, -- enable glob parsing
+    glob_flag = "--iglob", -- case insensitive globs
+    glob_separator = "%s%-%-", -- query separator pattern (lua): ' --'
+  },
 })
 
 
