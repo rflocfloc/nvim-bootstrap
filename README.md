@@ -9,6 +9,7 @@ Required packages:
 - `lua`
 - `npm` (for Mason/LSP install)
 - `fzf` (for fzf-lua)
+- `bat` (for fzf-lua preview)
 
 ## LSP install
 LSP must be installed manually. Mason is installed therefore you can check the available ones with ` :Mason `
