@@ -1,6 +1,6 @@
 -- set local function augroup
 local function augroup(name)
-  return vim.api.nvim_create_augroup("custom_" .. name, { clear = true })
+  return vim.api.nvim_create_augroup("UserConfig_" .. name, { clear = true })
 end
 
 -- Highlight when yanking text
@@ -49,6 +49,46 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     local lcount = vim.api.nvim_buf_line_count(buf)
     if mark[1] > 0 and mark[1] <= lcount then
       pcall(vim.api.nvim_win_set_cursor, 0, mark)
+    end
+  end,
+})
+
+-- Auto-close terminal when process exits
+vim.api.nvim_create_autocmd("TermClose", {
+  group = augroup("term_close"),
+  callback = function()
+    if vim.v.event.status == 0 then
+      vim.api.nvim_buf_delete(0, {})
+    end
+  end,
+})
+
+-- Disable line numbers in terminal
+vim.api.nvim_create_autocmd("TermOpen", {
+  group = augroup("term_no_numbers"),
+  callback = function()
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+    vim.opt_local.signcolumn = "no"
+  end,
+})
+
+-- Treesitter start
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("treesitter"),
+    callback = function()
+        pcall(vim.treesitter.start)
+    end
+})
+
+-- LSP Autocomplete
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = augroup("lsp_autocomplete"),
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client:supports_method('textDocument/completion') then
+      -- Enable auto-completion
+      vim.lsp.completion.enable(true, client.id, args.buf, {autotrigger = true})
     end
   end,
 })

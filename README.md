@@ -5,7 +5,7 @@ Clone directory to your `~/.config/nvim`.
 
 ## System Dependencies
 Required packages:
-- `nvim` (0.11+)
+- `nvim` (0.12+) -- Uses `vim.pack`
 - `lua`
 - `npm` (for Mason/LSP install)
 - `fzf` (for fzf-lua)

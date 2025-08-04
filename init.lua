@@ -7,10 +7,18 @@ vim.g.have_nerd_font = true	-- Set to true if you have a Nerd Font installed and
 require "config.options"
 require "config.keymaps"
 require "config.autocmds"
-require "config.floating_terminal"
-require "config.lazy"
+
+-- [[ Loading Utils ]]
+require "utils.floating_terminal"
+
+-- [[ Loading Plugins ]]
+require "plugins.lsp"
+require "plugins.treesitter"
+require "plugins.fzf-lua"
+require "plugins.arrow"
+require "plugins.lualine"
+require "plugins.which-key"
+require "plugins.nvim-ansible" -- LSP config for ansible
 
 -- [[ Colorscheme ]]
--- add colorschemes under lua/plugin/colorscheme.lua
-vim.o.background = 'dark'
-vim.cmd.colorscheme 'candle-grey-transparent'
+require "plugins.colorscheme"
