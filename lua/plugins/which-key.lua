@@ -66,6 +66,7 @@ require("which-key").setup({
     { '<C-w>', group = 'Window' , icon = ''},
     { '<leader>st', group = '[S]earch [T]odo', icon = {icon = "", color = "cyan"}},
     { '<leader>t', group = 'Floating Terminal', icon = {icon = "", color = "red"}},
+    { '<leader>f', group = 'Flash', icon = {icon = "", color = "yellow"}},
     { '<leader>sb', group = 'Existing Buffers', icon = {icon = "", color = "blue"}},
     { '<leader>H', group = 'Git Hunk', mode = { 'n', 'v' } },
   },

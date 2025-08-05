@@ -1,12 +1,12 @@
 -- [[ Add Plugin ]]
 vim.pack.add({
-  { src = "https://github.com/nvim-treesitter/nvim-treesitter.git"},
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter.git" },
 })
 
 -- [[ Plugin Setup ]]
 require("nvim-treesitter").setup({
   -- Treesitter, used for language highlights
-  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "python", "yaml", "toml"},
+  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "python", "yaml", "toml" },
   auto_install = true,
   highlight = {
     enable = true,
@@ -20,6 +20,3 @@ require("nvim-treesitter").setup({
     additional_vim_regex_highlighting = false,
   },
 })
-
-
-

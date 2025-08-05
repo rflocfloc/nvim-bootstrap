@@ -6,7 +6,7 @@ end
 -- Highlight when yanking text
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
-  group = augroup('highlight_yank', { clear = true }),
+  group = augroup('highlight_yank'),
   callback = function()
     vim.hl.on_yank()
   end,
@@ -81,14 +81,3 @@ vim.api.nvim_create_autocmd("FileType", {
     end
 })
 
--- LSP Autocomplete
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = augroup("lsp_autocomplete"),
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client:supports_method('textDocument/completion') then
-      -- Enable auto-completion
-      vim.lsp.completion.enable(true, client.id, args.buf, {autotrigger = true})
-    end
-  end,
-})

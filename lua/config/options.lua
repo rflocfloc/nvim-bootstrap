@@ -26,15 +26,13 @@ vim.o.termguicolors = true                       -- Enable 24-bit colors
 vim.o.signcolumn = "yes"                         -- Always show sign column
 vim.o.showmatch = true                           -- Highlight matching brackets
 vim.o.matchtime = 2                              -- How long to show matching bracket
-vim.o.cmdheight = 1                              -- Command line height
+vim.o.cmdheight = 0                              -- Command line height
 vim.o.completeopt = "menuone,noinsert,noselect,fuzzy"  -- Completion options 
 vim.o.showmode = false                           -- Don't show mode in command line (like '<'>)
 vim.o.pumheight = 10                             -- Popup menu height 
 vim.o.list = true                                  -- Sets how neovim will display certain whitespace characters in the editor.
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
--- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
--- instead raise a dialog asking if you wish to save the current file(s)
-vim.o.confirm = true
+vim.o.winborder = "rounded"                        -- border of popup windows (like hover)
 
 -- File handling
 vim.o.undofile = true                            -- Persistent undo
@@ -48,6 +46,9 @@ vim.o.backspace = "indent,eol,start"             -- Better backspace behavior
 vim.o.mouse = "a"                                -- Enable mouse support
 vim.o.encoding = "UTF-8"                         -- Set encoding
 vim.o.inccommand = 'split'                         -- Preview substitutions live, as you type!
+-- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
+-- instead raise a dialog asking if you wish to save the current file(s)
+vim.o.confirm = true
 
 -- Cursor settings
 -- vim.o.guicursor = "n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
