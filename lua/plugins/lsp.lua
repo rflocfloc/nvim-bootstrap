@@ -33,6 +33,6 @@ vim.keymap.set('n', 'grf', function() vim.lsp.buf.format { async = true } end, {
 
 -- [[ Enable LSP ]]
 vim.lsp.enable "lua_ls"
-vim.lsp.enable "bash_ls"
+vim.lsp.enable "bashls"
 vim.lsp.enable "pyright"
 vim.lsp.enable "ansiblels"
