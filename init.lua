@@ -1,5 +1,4 @@
 -- ~/.config/nvim/init.lua
--- Resonable one file config for nvim
 
 -- -------------
 -- [[ OPTIONS ]]
@@ -33,7 +32,7 @@ vim.opt.complete.opt = {"menuone","noinsert","noselect"}
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
--- File handling
+-- File handling/history
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
@@ -110,18 +109,6 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Exit terminal mode pressing <Esc>
 vim.keymap.set('t', '<Esc>', '<C-\\><C-N>')
-
---  Center curson when scrolling/searching
-vim.keymap.set('n', '<C-d>', '<C-d>zz', {desc = 'Scroll down, centered'})
-vim.keymap.set('n', '<C-u>', '<C-u>zz', {desc = 'Scroll up, centered'})
-vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Next search result, centered' })
-vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Prev search result, centered' })
-
---  Use CTRL+<hjkl> to switch between windows
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', {noremap = true, desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', {noremap = true, desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', {noremap = true, desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', {noremap = true, desc = 'Move focus to the upper window' })
 
 -- Move between buffers keymaps
 vim.keymap.set("n", "<S-h>", ":bprevious<CR>", { desc = "Prev Buffer" })
