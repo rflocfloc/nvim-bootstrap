@@ -97,14 +97,6 @@ vim.api.nvim_create_autocmd("TermClose", {
   end,
 })
 
--- Tries to start treesitter for each filetype
-vim.api.nvim_create_autocmd("FileType", {
-  group = augroup("StartTreesitter"),
-  callback = function()
-    pcall(vim.treesitter.start)
-  end
-})
-
 -- -------------
 -- [[ KEYMAPS ]]
 -- -------------
