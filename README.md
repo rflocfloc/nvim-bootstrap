@@ -1,18 +1,15 @@
-# Neovim Dotfiles
-Configuration files for setting up neovim.
-
+# Neovim Basic Dotfiles
+:cherry_blossom: **Resonable** :cherry_blossom: monolitic config to start with nvim.
 Clone directory to your `~/.config/nvim`.
 
-## System Dependencies
 Required packages:
-- `nvim` (0.12+) -- Uses `vim.pack`
-- `lua`
-- `npm` (for Mason/LSP install)
-- `fzf` (for fzf-lua)
-- `bat` (for fzf-lua preview)
+- `nvim` (0.11+)
 
-## LSP install
-LSP must be installed manually. Mason is installed therefore you can check the available ones with ` :Mason `
-And install them with ` :MasonInstall <package name> `.
+## How-to-learn/practice resources:
+Best resource on the market: *learn by necessity*. However, if you feel lost or you do not know what you can do/how to look for it here are some very useful places to look to:
 
-Otherwise remove Mason and install them at user/system level. Once installed LSP should be **enabled** (check lua/plugins/lsp.lua).
+### :VimTutor
+
+### :help
+
+### :VimBeGood
