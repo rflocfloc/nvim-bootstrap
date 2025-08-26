@@ -32,7 +32,7 @@ Use the :help command followed by the topic you want to learn about, for example
 ```
 
 >[!TIP]
-> Use :help index to see the full list of help topics.
+> Use `:help index` to see the full list of help topics.
 
 ### :VimBeGood
 [VimBeGood](https://github.com/ThePrimeagen/vim-be-good.git) is a fun, gamified way to improve your Vim and Neovim skills by practicing real editing challenges. It helps build muscle memory for navigation and editing commands.
