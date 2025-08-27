@@ -8,16 +8,12 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.wrap = false
-vim.opt.scrolloff = 10
-vim.opt.sidescrolloff = 8
 vim.opt.inccommand = 'split'
 vim.opt.confirm = true
 
 -- Indentation
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
-vim.opt.expandtab = true
 vim.opt.breakindent = true
 
 -- Search settings
@@ -28,7 +24,6 @@ vim.opt.path:append("**")
 vim.opt.termguicolors = true
 vim.opt.guicursor = ""
 vim.opt.signcolumn = "yes"
-vim.opt.complete.opt = {"menuone","noinsert","noselect"}
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
