@@ -18,7 +18,6 @@ vim.opt.breakindent = true
 
 -- Search settings
 vim.opt.smartcase = true
-vim.opt.path:append("**")
 
 -- Visual settings
 vim.opt.termguicolors = true
@@ -59,57 +58,20 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- Resize splits if window got resized
-vim.api.nvim_create_autocmd({ "VimResized" }, {
-  desc = 'Resize splits if window is resized',
-  group = augroup("ResizeSplits"),
-  callback = function()
-    local current_tab = vim.fn.tabpagenr()
-    vim.cmd("tabdo wincmd =")
-    vim.cmd("tabnext " .. current_tab)
-  end,
-})
-
--- Checks and reloads file when modified by another program/session
-vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
-  desc = 'Check if reload is needed when changing file',
-  group = augroup("CheckFile"),
-  callback = function()
-    if vim.o.buftype ~= "nofile" then
-      vim.cmd("checktime")
-    end
-  end,
-})
-
--- Closes unused terminals
-vim.api.nvim_create_autocmd("TermClose", {
-  group = augroup("CloseTerminal"),
-  callback = function()
-    if vim.v.event.status == 0 then
-      vim.api.nvim_buf_delete(0, {})
-    end
-  end,
-})
 
 -- -------------
 -- [[ KEYMAPS ]]
 -- -------------
 
--- Setting leader key
 vim.g.mapleader =  " "
 vim.g.maplocalleader = " "
 
--- Clear highlights on search pressing <Esc> in normal mode
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', {desc = "<Esc> to clear search highlights"})
+vim.keymap.set('t', '<Esc>', '<C-\\><C-N>', {desc = "<Esc> to exit terminal mode"})
 
--- Exit terminal mode pressing <Esc>
-vim.keymap.set('t', '<Esc>', '<C-\\><C-N>')
-
--- Move between buffers keymaps
 vim.keymap.set("n", "<S-h>", ":bprevious<CR>", { desc = "Prev Buffer" })
 vim.keymap.set("n", "<S-l>", ":bnext<CR>", { desc = "Next Buffer" })
-
---  Use Alt+<hjkl> to move lines 
+ 
 -- (Normal mode)
 vim.keymap.set('n', '<A-h>', '<<', { noremap = true, silent = true, desc = 'Move line to the left' })
 vim.keymap.set('n', '<A-l>', '>>', { noremap = true, silent = true, desc = 'Move line to the right' })
@@ -121,15 +83,10 @@ vim.keymap.set({'v', 'x'}, '<A-l>', '>gv', { noremap = true, silent = true, desc
 vim.keymap.set({'v', 'x'}, '<A-j>', ':m \'>+1<CR>gv=gv', { noremap = true, silent = true, desc = 'Move block selection down' })
 vim.keymap.set({'v', 'x'}, '<A-k>', ':m \'<-2<CR>gv=gv', { noremap = true, silent = true, desc = 'Move block selection up' })
 
--- Delete to blackhole registry (without yank)
 vim.keymap.set({'v', 'n'}, '<leader>d', "\"_d", { noremap = true, silent = true, desc = 'Delete to blackhole' })
 vim.keymap.set({'v', 'n'}, '<leader>p', [["_dP]], { noremap = true, silent = true, desc = 'Delete to blackhole and Paste' })
 
--- Yank to system clipboard
 vim.keymap.set('x', '<leader>y', [["+y]], { noremap = true, silent = true, desc = 'Yank to system clipboard' })
 
--- Replace selection in file
 vim.keymap.set('v', '<leader>r', "\"hy:%s/<C-r>h//g<left><left>", { noremap = true, silent = true, desc = 'Replace selection globally' })
 
--- [[ Netrw ]]
-vim.keymap.set('n', '<leader>e', ':Ex<CR>', { noremap = true, silent = true, desc = 'Open [E]xplorer'})
