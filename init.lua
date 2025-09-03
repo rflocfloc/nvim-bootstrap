@@ -14,7 +14,6 @@ vim.opt.confirm = true
 -- Indentation
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.breakindent = true
 
 -- Search settings
 vim.opt.smartcase = true
@@ -49,9 +48,8 @@ local function augroup(name)
   return vim.api.nvim_create_augroup("UserConfig_" .. name, { clear = true })
 end
 
--- Highlight when yanking text
 vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
+  desc = 'Highlight when yanking text',
   group = augroup('HighlightText'),
   callback = function()
     vim.hl.on_yank()
@@ -89,4 +87,3 @@ vim.keymap.set({'v', 'n'}, '<leader>p', [["_dP]], { noremap = true, silent = tru
 vim.keymap.set('x', '<leader>y', [["+y]], { noremap = true, silent = true, desc = 'Yank to system clipboard' })
 
 vim.keymap.set('v', '<leader>r', "\"hy:%s/<C-r>h//g<left><left>", { noremap = true, silent = true, desc = 'Replace selection globally' })
-
