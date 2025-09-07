@@ -14,6 +14,7 @@ vim.opt.confirm = true
 -- Indentation
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 
 -- Search settings
 vim.opt.smartcase = true
