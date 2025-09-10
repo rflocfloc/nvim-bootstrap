@@ -19,6 +19,10 @@ vim.opt.expandtab = true
 -- Search settings
 vim.opt.smartcase = true
 
+-- Loclist default location
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
 -- Visual settings
 vim.opt.termguicolors = true
 vim.opt.guicursor = ""
@@ -46,7 +50,7 @@ vim.g.netrw_winsize = 20
 
 -- set local function
 local function augroup(name)
-  return vim.api.nvim_create_augroup("UserConfig_" .. name, { clear = true })
+  return vim.api.nvim_create_augroup("User_" .. name, { clear = true })
 end
 
 vim.api.nvim_create_autocmd('TextYankPost', {
