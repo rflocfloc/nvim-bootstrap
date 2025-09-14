@@ -1,5 +1,5 @@
 # Neovim Basic Dotfiles
-:cherry_blossom: **Resonable** :cherry_blossom: monolitic config to start with nvim.
+:cherry_blossom: **Resonable** :cherry_blossom: single file config to start with nvim.
 Clone directory to your `~/.config/nvim`.
 
 Required packages:
