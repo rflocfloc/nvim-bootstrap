@@ -4,6 +4,10 @@
 -- [[ OPTIONS ]]
 -- -------------
 
+-- Set leader key
+-- very useful for custom keymaps (eg. '<leader>X')
+vim.g.mapleader =  " "
+
 -- Basic settings
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -40,35 +44,24 @@ vim.opt.timeoutlen = 500
 
 -- File Brower settings (Netrw)
 -- vim.g.netrw_banner = 0	-- Uncomment to remove Netrw banner
-vim.g.netrw_liststyle = 3
+-- vim.g.netrw_liststyle = 3  -- Uncomment to have tree style :Explore
 vim.g.netrw_showhidden = 1
 vim.g.netrw_winsize = 20
 
 -- ------------------
 -- [[ AUTOCOMMANDS ]]
 -- ------------------
-
--- set local function
-local function augroup(name)
-  return vim.api.nvim_create_augroup("User_" .. name, { clear = true })
-end
-
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking text',
-  group = augroup('HighlightText'),
+  group = vim.api.nvim_create_augroup("User_HighlightText", { clear = true }),
   callback = function()
     vim.hl.on_yank()
   end,
 })
 
-
 -- -------------
 -- [[ KEYMAPS ]]
 -- -------------
-
-vim.g.mapleader =  " "
-vim.g.maplocalleader = " "
-
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', {desc = "<Esc> to clear search highlights"})
 vim.keymap.set('t', '<Esc>', '<C-\\><C-N>', {desc = "<Esc> to exit terminal mode"})
 
@@ -77,9 +70,8 @@ vim.keymap.set({'v', 'x'}, '<S-l>', '>gv', { noremap = true, silent = true, desc
 vim.keymap.set({'v', 'x'}, '<S-j>', ':m \'>+1<CR>gv=gv', { noremap = true, silent = true, desc = 'Move block selection down' })
 vim.keymap.set({'v', 'x'}, '<S-k>', ':m \'<-2<CR>gv=gv', { noremap = true, silent = true, desc = 'Move block selection up' })
 
-vim.keymap.set({'v', 'n'}, '<leader>d', "\"_d", { noremap = true, silent = true, desc = 'Delete to blackhole' })
-vim.keymap.set({'v', 'n'}, '<leader>p', [["_dP]], { noremap = true, silent = true, desc = 'Delete to blackhole and Paste' })
-
-vim.keymap.set('x', '<leader>y', [["+y]], { noremap = true, silent = true, desc = 'Yank to system clipboard' })
-
-vim.keymap.set('v', '<leader>r', "\"hy:%s/<C-r>h//g<left><left>", { noremap = true, silent = true, desc = 'Replace selection globally' })
+-- Very useful default keymaps:
+-- - "\d", desc = 'Delete to blackhole'
+-- - "\p", desc = 'Delete to blackhole and Paste'
+-- - "\y", desc = 'Yank to system clipboard'
+-- - "\r", desc = 'Replace selection globally'
