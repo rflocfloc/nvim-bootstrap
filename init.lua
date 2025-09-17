@@ -71,7 +71,7 @@ vim.keymap.set({'v', 'x'}, '<S-j>', ':m \'>+1<CR>gv=gv', { noremap = true, silen
 vim.keymap.set({'v', 'x'}, '<S-k>', ':m \'<-2<CR>gv=gv', { noremap = true, silent = true, desc = 'Move block selection up' })
 
 -- Very useful default keymaps:
--- - "\d", desc = 'Delete to blackhole'
--- - "\p", desc = 'Delete to blackhole and Paste'
--- - "\y", desc = 'Yank to system clipboard'
--- - "\r", desc = 'Replace selection globally'
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete to blackhole" })
+vim.keymap.set("v", "<leader>p", [["_dP]], { desc = "Delete to blackhole and Paste" })
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to system clipboard" })
+vim.keymap.set("v", "<leader>r", [["hy:%s/<C-r>h//g<left><left>]], { desc = "Replace selection globally" })
