@@ -5,7 +5,7 @@ Clone directory to your `~/.config/nvim`.
 Required packages:
 - `nvim` (0.11+)
 
-## How-to learn/practice Vim
+# Learn/practice Vim
 >[!CAUTION]
 > Do not rush it. Don't try to learn everything at once!
 
