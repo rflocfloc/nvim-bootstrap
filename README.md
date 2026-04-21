@@ -1,11 +1,12 @@
-# Neovim Basic Dotfiles
-:cherry_blossom: **Resonable** :cherry_blossom: single file config to start with nvim.
+# Neovim (baseline) Dotfiles
+:cherry_blossom: **Resonable** :cherry_blossom: single-file very-minimal opinionated config to bootstrap your nvim journey.
 Clone directory to your `~/.config/nvim`.
 
 Required packages:
 - `nvim` (0.11+)
 
 # Learn/practice Vim
+
 >[!CAUTION]
 > Do not rush it. Don't try to learn everything at once!
 
