@@ -1,9 +1,11 @@
-# Neovim (baseline) Dotfiles
+# Neovim Bootstrap Dotfiles
 :cherry_blossom: **Resonable** :cherry_blossom: single-file very-minimal opinionated config to bootstrap your nvim journey.
 Clone directory to your `~/.config/nvim`.
 
 Required packages:
-- `nvim` (0.11+)
+- `nvim` (0.12+)
+
+One plugin is installed (0.12+ required), if you are on older versions remove the plugin section from init.lua.
 
 # Learn/practice Vim
 
@@ -19,7 +21,7 @@ Run it from inside `nvim` by typing:
 ```vim
 :vimtutor
 ```
-This will launch a guided lesson that introduces you to movement, editing, saving, and quitting.
+This will launch a guided lesson that introduces you to **movement, editing, saving, and quitting**.
 
 ### :help
 Neovim has one of the most comprehensive and well-organized built-in help systems. You can access documentation for any command, function, or option directly inside Neovim.
@@ -27,6 +29,7 @@ Neovim has one of the most comprehensive and well-organized built-in help system
 Use the :help command followed by the topic you want to learn about, for example:
 
 ```vim
+:help
 :help user-manual
 :help motion
 :help key-mapping
@@ -34,6 +37,7 @@ Use the :help command followed by the topic you want to learn about, for example
 
 >[!TIP]
 > Use `:help index` to see the full list of help topics.
+> Use `]f` to follow a link in help pages, `CTRL-o` to jump back.
 
 ### :VimBeGood
 [VimBeGood](https://github.com/ThePrimeagen/vim-be-good.git) is a fun, gamified way to improve your Vim and Neovim skills by practicing real editing challenges. It helps build muscle memory for navigation and editing commands.
