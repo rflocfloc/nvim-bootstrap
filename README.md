@@ -53,3 +53,6 @@ or, you can run a docker image to practice without install anything:
 ```bash
 docker run -it --rm brandoncc/vim-be-good:stable
 ```
+
+### Vim Scoop
+[Vim Scoop](https://vimscoops.dev/) is a very nice online game for learning motions with an ice cream van.
